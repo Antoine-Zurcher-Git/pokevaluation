@@ -5,21 +5,9 @@ To execute this code, you first need python (it was made with version 3.9.0), an
 
 ### Libraries
 
-* selenium
-```sh
-  python -m pip install selenium
-```
+Insall all dependencies :
 
-* requests
-```sh
-  python -m pip install requests
-```
-
-* beautifulsoup4
-```sh
-  python -m pip install beautifulsoup4
-```
-
+    pip instal -r requirements.txt
 
 
 ### Installation
