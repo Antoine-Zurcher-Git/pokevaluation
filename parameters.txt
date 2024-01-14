@@ -1,0 +1,7 @@
+pokecardex_number = "000000"
+collection_file_path = "collections/defaultCollectionName.json"
+pokedex_file_path = "pokedex/pokedex.json"
+action_get_collection_data = False
+action_search_price = False
+action_get_analyse = False
+action_research_for_link_not_found = False
