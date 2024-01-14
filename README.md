@@ -17,8 +17,8 @@ git clone https://github.com/Antoine-Zurcher-Git/pokevaluation.git
 ```
 
 ### Execution
-1. Setup parameters (ln 117-125 of main.py)
-    * pokecardexNumber : Number of your pokecardex profil (ex : 012345)
+1. Setup parameters in parameters.txt
+    * pokecardexNumber : Number of your pokecardex profil (ex : "012345")
     * saveFilePath : path to save the collection data file (ex : "collections/defaultCollectionName.json")
     * savePokedexFilePath : path to save the pokedex data file (ex : "pokedex/pokedex.json")
     * getCollectionData : True if you want to get the collection data from pokecardex

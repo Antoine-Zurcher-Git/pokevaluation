@@ -114,14 +114,62 @@ def collectionIntCardsForExg(donneur: Collection, chercheur: Collection):
     return cardsExchangeabled
 
 if __name__ == "__main__":
+    parameters = {}
+    try:
+        with open('parameters.txt', 'r') as file:
+            for line in file:
+                lineSplit = line.strip().split("=")
+                parameters[lineSplit[0].strip()] = lineSplit[1].strip()
+    except FileNotFoundError:
+        print("Error: Parameters File not found. Please make sure the file exists.")
+        exit()
+    except:
+        print("Error with the parameters file")
+        exit()
+
+
     ### ------ Parameters ------
-    pokecardexNumber = 000000
-    saveFilePath = "collections/defaultCollectionName.json"
-    savePokedexFilePath = "pokedex/pokedex.json"
-    getCollectionData = False
-    searchPrice = False
-    getAnalyse = False
-    researchForLinkNotFound = False
+    try:
+        pokecardexNumber = parameters["pokecardex_number"]
+    except:
+        print("Missing parameters : pokecardex_number")
+        exit()
+    
+    try:
+        saveFilePath = parameters["collection_file_path"]
+    except:
+        saveFilePath = "collections/defaultCollectionName.json"
+        print(f"Missing parameters : collection_file_path, default value : {saveFilePath}")
+
+    try:
+        savePokedexFilePath = parameters["pokedex_file_path"]
+    except:
+        savePokedexFilePath = "pokedex/pokedex.json"
+        print(f"Missing parameters : pokedex_file_path, default value : {savePokedexFilePath}")
+
+    try:
+        getCollectionData = parameters["action_get_collection_data"].lower() == "true"
+    except:
+        getCollectionData = True
+        print(f"Missing parameters : action_get_collection_data, default value : {getCollectionData}")
+    
+    try:
+        searchPrice = parameters["action_search_price"].lower() == "true"
+    except:
+        searchPrice = False
+        print(f"Missing parameters : action_search_price, default value : {searchPrice}")
+    
+    try:
+        getAnalyse = parameters["action_get_analyse"].lower() == "true"
+    except:
+        getAnalyse = True
+        print(f"Missing parameters : action_get_analyse, default value : {getAnalyse}")
+
+    try:
+        researchForLinkNotFound = parameters["action_research_for_link_not_found"].lower() == "true"
+    except:
+        researchForLinkNotFound = False
+        print(f"Missing parameters : action_research_for_link_not_found, default value : {researchForLinkNotFound}")
     ### ------ Parameters ------
 
 
@@ -267,6 +315,6 @@ if __name__ == "__main__":
     if getAnalyse:
         report(data, errorLinkNotFoundName)
 
-    print("Finish")
+    print("--- Finish ---")
 
 
