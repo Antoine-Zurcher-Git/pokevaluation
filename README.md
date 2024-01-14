@@ -7,7 +7,7 @@ To execute this code, you first need python (it was made with version 3.9.0), an
 
 Insall all dependencies :
 
-    pip instal -r requirements.txt
+    pip install -r requirements.txt
 
 
 ### Installation
