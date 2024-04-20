@@ -109,9 +109,14 @@ def __processSerieCardData(raw_data: Optional[str]):
         iEndName = raw_data[iStartInfo+iStartName:iStartInfo+iStartName+100].find(endEx)
         info = raw_data[iStartInfo+iStartName+len(startEx):iStartInfo+iStartName+iEndName]
         
-        numberRaw = re.search('(?:\\b\d+\/\d+\\b|\\b[a-zA-Z]+\d+|\\b\d+[a-zA-Z]\\b)(?!.*(?:\\b\d+\/\d+\\b|\\b[a-zA-Z]+\d+|\\b\d+[a-zA-Z]\b))', info).group(0)
-        nameRawI = info.find(numberRaw)
-        serieRes.append({"name":info[:nameRawI-1], "numberRaw":numberRaw, "number":numberRaw.split("/")[0]})
+        numberRawSearch = re.search('(?:\\b\d+\/\d+\\b|\\b[a-zA-Z]+\d+|\\b\d+[a-zA-Z]\\b)(?!.*(?:\\b\d+\/\d+\\b|\\b[a-zA-Z]+\d+|\\b\d+[a-zA-Z]\b))', info)
+        if (numberRawSearch == None):
+            print("Error loading number for : ")
+            print(info)
+        else:
+            numberRaw = numberRawSearch.group(0)
+            nameRawI = info.find(numberRaw)
+            serieRes.append({"name":info[:nameRawI-1], "numberRaw":numberRaw, "number":numberRaw.split("/")[0]})
     return serieRes
 
 

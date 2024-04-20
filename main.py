@@ -131,42 +131,49 @@ if __name__ == "__main__":
     ### ------ Parameters ------
     try:
         pokecardexNumber = parameters["pokecardex_number"]
+        print(f"Pokecardex number : {pokecardexNumber}")
     except:
         print("Missing parameters : pokecardex_number")
         exit()
     
     try:
         saveFilePath = parameters["collection_file_path"]
+        print(f"save File Path : {saveFilePath}")
     except:
         saveFilePath = "collections/defaultCollectionName.json"
         print(f"Missing parameters : collection_file_path, default value : {saveFilePath}")
 
     try:
         savePokedexFilePath = parameters["pokedex_file_path"]
+        print(f"save Pokedex File Path : {savePokedexFilePath}")
     except:
         savePokedexFilePath = "pokedex/pokedex.json"
         print(f"Missing parameters : pokedex_file_path, default value : {savePokedexFilePath}")
 
     try:
         getCollectionData = parameters["action_get_collection_data"].lower() == "true"
+        print(f"get Collection Data : {getCollectionData}")
     except:
         getCollectionData = True
         print(f"Missing parameters : action_get_collection_data, default value : {getCollectionData}")
     
     try:
         searchPrice = parameters["action_search_price"].lower() == "true"
+        print(f"search Price : {searchPrice}")
     except:
         searchPrice = False
         print(f"Missing parameters : action_search_price, default value : {searchPrice}")
     
     try:
         getAnalyse = parameters["action_get_analyse"].lower() == "true"
+        print(f"get Analyse : {getAnalyse}")
     except:
         getAnalyse = True
         print(f"Missing parameters : action_get_analyse, default value : {getAnalyse}")
 
     try:
         researchForLinkNotFound = parameters["action_research_for_link_not_found"].lower() == "true"
+        print(f"research For Link Not Found : {researchForLinkNotFound}")
     except:
         researchForLinkNotFound = False
         print(f"Missing parameters : action_research_for_link_not_found, default value : {researchForLinkNotFound}")
